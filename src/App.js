@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import {
+  AmityUiKitProvider,
+  AmityUiKitSocial,
+} from "@amityco/ui-kit-open-source";
+const userId = process.env.REACT_APP_USER_ID;
+const apiKey = process.env.REACT_APP_API_KEY;
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AmityUiKitProvider
+        key={userId}
+        apiKey={apiKey}
+        userId={userId}
+        displayName={userId}
+      >
+        <AmityUiKitSocial />
+      </AmityUiKitProvider>
     </div>
   );
 }
-
-export default App;
